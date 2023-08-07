@@ -1,11 +1,11 @@
 variable "region" {
-  default = "ap-southeast-1"
+  default = "ap-south-1"
   type    = string
 }
 
 variable "project" {
   description = "The project name to use for unique resource naming"
-  default     = "dungpham"
+  default     = "automation-team-pranad-ayush-jayant"
   type        = string
 }
 
