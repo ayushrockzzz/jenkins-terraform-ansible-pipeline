@@ -73,7 +73,7 @@ pipeline {
     stage('Setup Ansible') {
       steps {
         sh '''
-          ANSIBLE_HOST_KEY_CHECKING=false
+          export ANSIBLE_HOST_KEY_CHECKING=False
         '''
       }
     }
