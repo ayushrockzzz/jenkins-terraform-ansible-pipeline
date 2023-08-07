@@ -72,7 +72,7 @@ pipeline {
 
     stage('Run Ansible') {
       steps {
-        ansiblePlaybook(inventory: 'aws_hosts', playbook: 'ansible/docker.yml', hostKeyChecking: 'false')
+        ansiblePlaybook(credentialsId: 'ec2.ssh.key', inventory: 'aws_hosts', playbook: 'ansible/docker.yml', hostKeyChecking: 'false')
       }
     }
 
