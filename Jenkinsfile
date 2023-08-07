@@ -70,9 +70,17 @@ pipeline {
       }
     }
 
+    stage('Setup Ansible') {
+      steps {
+        sh '''
+          ANSIBLE_HOST_KEY_CHECKING=false
+        '''
+      }
+    }
+
     stage('Run Ansible') {
       steps {
-        ansiblePlaybook(credentialsId: 'ec2.ssh.key', inventory: 'aws_hosts', playbook: 'ansible/docker.yml', hostKeyChecking: 'false')
+        ansiblePlaybook(credentialsId: 'ec2.ssh.key', inventory: 'aws_hosts', playbook: 'ansible/docker.yml')
       }
     }
 
