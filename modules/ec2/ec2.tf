@@ -1,22 +1,7 @@
 data "aws_caller_identity" "current" {}
 
-data "aws_ami" "ubuntu" {
-  most_recent = true
-
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
-  }
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  owners = ["278745882559"] # Canonical
-}
-
 resource "aws_instance" "ec2_test" {
-  ami           = "${data.aws_ami.ubuntu.id}"
+  ami           = "ami-0f5ee92e2d63afc18"
   instance_type = "${var.instance_type}"
   key_name      = "${aws_key_pair.keypair_test.key_name}"
 
